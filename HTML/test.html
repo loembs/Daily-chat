@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/test.css">
+    <title>Fenêtre modale</title>
+</head>
+<body>
+
+<!-- Contenu de la page principale -->
+<h1>Page Principale</h1>
+<p>Contenu de la page principale...</p>
+
+<!-- Bouton ou icône pour ouvrir la fenêtre modale -->
+<button id="ouvrirModal">Ouvrir la fenêtre modale</button>
+
+
+<!-- Fenêtre modale -->
+<div class="modal" id="maModal">
+    <div class="modal-contenu">
+        <span class="fermer" id="fermerModal">&times;</span>
+        <h2>Fenêtre Modale</h2>
+       
+        <div class="contacts-list" id="contactsList">
+            <div class="contact" data-contact-id="john_doe">John Doe</div>
+            <div class="contact" data-contact-id="chaymae_naim">Chaymae Naim</div>
+            <div class="contact" data-contact-id="sami_rafi">Sami Rafi</div>
+            <div class="contact" data-contact-id="hassan_agmir">Hassan Agmir</div>
+            <div class="contact" data-contact-id="abdou_chatabi">Abdou Chatabi</div>
+        </div>    
+        
+    </div>
+</div>
+
+<!-- Script pour gérer l'affichage et la fermeture de la fenêtre modale -->
+<script src="../JS/test.js"></script>
+
+</body>
+</html>
+
+
+// Récupérer les éléments nécessaires
+var boutonOuvrir = document.getElementById('ouvrirModal');
+var boutonFermer = document.getElementById('fermerModal');
+var fenetreModale = document.getElementById('maModal');
+
+// Ajouter un écouteur d'événements pour le bouton d'ouverture
+boutonOuvrir.addEventListener('click', function() {
+    fenetreModale.style.display = 'block';
+});
+
+// Ajouter un écouteur d'événements pour le bouton de fermeture
+boutonFermer.addEventListener('click', function() {
+    fenetreModale.style.display = 'none';
+});
+
+// Récupérer l'élément de la liste déroulante
+var listeContacts = document.getElementById('listeContacts');
+
+// Ajouter un écouteur d'événements pour le changement de sélection
+listeContacts.addEventListener('change', function() {
+    var contactSelectionne = listeContacts.value;
+    // Vous pouvez effectuer des actions en fonction du contact sélectionné
+    // Par exemple, charger le contenu du contact dans la fenêtre modale
+    chargerContactActif(contactSelectionne);
+});
+
+// Le reste de votre script...
+
+///////////////////////////////////////////////////////////////chat.tml
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header"></div>
+        <div class="body">
+            <div class="navbar">
+                <li>
+                    <i class="fa-solid fa-message"></i>
+                    <p>message</p>
+                </li>
+               
+                <li>
+                    <i class="fa-solid fa-people-group"></i>
+                    <p>Groupes</p>
+                </li>
+                
+                <li>
+                    <i class="fa-solid fa-share-from-square"></i>
+                    <p>Diffusion</p>
+                </li>
+                
+                <li>
+                    <i class="fa-solid fa-box-archive"></i>
+                    <p>Archives</p>
+                </li>
+                <li>
+                    <i class="fa-solid fa-plus"></i>
+                    <p>Nouveau</p>
+                </li>
+            </div>
+            <div class="liste_des_discussions">
+                <div class="header_liste_des_discussions">
+                    <h2>Discussion</h2>
+                </div>
+                <div class="header_liste_des_discussions">
+                    <div class="search-container">
+                        <form id="search-form">
+                            <div class="search-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <input type="text" id="search-input" placeholder="Rechercher...">
+                        </form>
+                    </div>
+                    
+                </div>
+                <div class="discussions">
+                    <div class="card-body contacts_body">
+                        <ui class="contacts">
+                            <a href="phone.html" onclick="chargerContactActif(utilisateur);">
+                                <li class="active">
+                                    <div class="bloc_contact">
+                                        <div class="img_cont">
+                                            <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+                                            <span class="online_icon"></span>
+                                        </div>
+                                        <div class="user_info">
+                                            <span>John Doe</span>
+                                            <p>Online</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </a>
+                            <a href= ""></a><li>
+                                <div class="bloc_contact">
+                                    <div class="img_cont">
+                                        <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-circle user_img">
+                                        <span class="online_icon offline"></span>
+                                    </div>
+                                    <div class="user_info">
+                                        <span>Chaymae Naim</span>
+                                        <p>Left 7 mins ago</p>
+                                    </div>
+                                </div>
+                            
+                        </li>
+                    </a>
+                    <a href="">
+                            <li>
+                                <div class="bloc_contact">
+                                    <div class="img_cont">
+                                        <img src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg" class="rounded-circle user_img">
+                                        <span class="online_icon"></span>
+                                    </div>
+                                    <div class="user_info">
+                                        <span>Sami Rafi</span>
+                                        <p>Online</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </a>
+                       <li>
+                            <div class="bloc_contact">
+                                <div class="img_cont">
+                                    <img src="https://avatars.hsoubcdn.com/ed57f9e6329993084a436b89498b6088?s=256" class="rounded-circle user_img">
+                                    <span class="online_icon offline"></span>
+                                </div>
+                                <div class="user_info">
+                                    <span>Hassan Agmir</span>
+                                    <p>Left 30 mins ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="bloc_contact">
+                                <div class="img_cont">
+                                    <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img">
+                                    <span class="online_icon offline"></span>
+                                </div>
+                                <div class="user_info">
+                                    <span>Abdou Chatabi</span>
+                                    <p>Left 50 mins ago</p>
+                                </div>
+                            </div>
+                        </li>
+                        </ui>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="zone_de_chat">
+                <div class="header_zone_de_chat">
+                    <div class="photo_contact">
+                        <div class="photo_profil"><img src="../images/téléchargement.jpeg" alt="" class="img1"></div>
+                        <span><p>john Doe</p></span>
+                    </div>
+                    <div class="icons_zone">
+                        <i class="fa-solid fa-delete-left"></i>
+                        <i class="fa-solid fa-box-archive"></i>
+                        <i class="fa-solid fa-stop"></i>
+                        <i class="fa-solid fa-trash"></i>
+                    </div>
+                </div>
+                <div class="zone_writting">
+                   <div class="messages">
+                        <div class="message my-message">
+                            <div>
+                                <div class="name">You</div>
+                                <div class="text">Hi</div>
+                            </div>
+                        </div>
+                        <div class="update">
+                            <p>Abc is joined the conversation</p>
+                        </div>
+                        <div class="message other-message">
+                            <div>
+                                <div class="name">Abc</div>
+                                <div class="text">Hi</div>  
+                            </div>
+                        </div>
+                   </div>
+                </div>
+                <form id="chat-form">
+                    <input type="text" id="chat-input" placeholder="Taper un message">
+                    <button type="submit">Envoyer</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+//////////////////////////////////////////////////////////////////connexion.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Chat</title>
+    <link rel="stylesheet" href="../css/connexion.css">
+</head>
+<body>
+    <div class="app">
+        <form class="screen join-screen active">
+            <div class="form">
+                <h2>Join Chat</h2>
+                <div class="form-input">
+                    <label for="username">Login</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <div class="form-input">
+                    <button id="join-user">Join</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+/////////////////////////////////////////////////////////////
+<ui class="contacts">
+    <a href="phone.html" onclick="chargerContactActif(utilisateur);">
+        <li class="active">
+            <div class="bloc_contact">
+                <div class="img_cont">
+                    <img src="https://static.turbosquid.com/Preview/001292/481/WV/_D.jpg" class="rounded-circle user_img">
+                    <span class="online_icon"></span>
+                </div>
+                <div class="user_info">
+                    <span>John Doe</span>
+                    <p>Online</p>
+                </div>
+            </div>
+        </li>
+    </a>
+    <a href="phone.html" onclick="chargerContactActif(utilisateur);"></a><li>
+        <div class="bloc_contact">
+            <div class="img_cont">
+                <img src="https://2.bp.blogspot.com/-8ytYF7cfPkQ/WkPe1-rtrcI/AAAAAAAAGqU/FGfTDVgkcIwmOTtjLka51vineFBExJuSACLcBGAs/s320/31.jpg" class="rounded-circle user_img">
+                <span class="online_icon offline"></span>
+            </div>
+            <div class="user_info">
+                <span>Chaymae Naim</span>
+                <p>Left 7 mins ago</p>
+            </div>
+        </div>
+    
+</li>
+</a>
+<a href="phone.html" onclick="chargerContactActif(utilisateur);">
+    <li>
+        <div class="bloc_contact">
+            <div class="img_cont">
+                <img src="https://i.pinimg.com/originals/ac/b9/90/acb990190ca1ddbb9b20db303375bb58.jpg" class="rounded-circle user_img">
+                <span class="online_icon"></span>
+            </div>
+            <div class="user_info">
+                <span>Sami Rafi</span>
+                <p>Online</p>
+            </div>
+        </div>
+    </li>
+</a>
+<li>
+    <div class="bloc_contact">
+        <div class="img_cont">
+            <img src="https://avatars.hsoubcdn.com/ed57f9e6329993084a436b89498b6088?s=256" class="rounded-circle user_img">
+            <span class="online_icon offline"></span>
+        </div>
+        <div class="user_info">
+            <span>Hassan Agmir</span>
+            <p>Left 30 mins ago</p>
+        </div>
+    </div>
+</li>
+<li>
+    <div class="bloc_contact">
+        <div class="img_cont">
+            <img src="https://static.turbosquid.com/Preview/001214/650/2V/boy-cartoon-3D-model_D.jpg" class="rounded-circle user_img">
+            <span class="online_icon offline"></span>
+        </div>
+        <div class="user_info">
+            <span>Abdou Chatabi</span>
+            <p>Left 50 mins ago</p>
+        </div>
+    </div>
+</li>
+</ui>
+</div>
+
+</div>
+/////////////////////////////////////////////////////////////////////////////////////
+<Script>
+    function seConnecter() {
+    let username = prompt('Entrez votre username :');
+
+    // Vérifie si l'username existe parmi les utilisateurs préenregistrés
+    user = utilisateurs.find(utilisateur => utilisateur.nom.toLowerCase() === username.toLowerCase());
+
+    if (user) {
+        alert('Connexion réussie en tant que ' + user.nom);
+        // Rediriger vers la page de chat après la connexion réussie
+        window.location.replace('chat.html');
+        return true; // Ajouter cette ligne pour éviter l'envoi du formulaire après la redirection
+    } else {
+        alert('Username incorrect. Veuillez réessayer.');
+        return false; // Ajouter cette ligne pour éviter l'envoi du formulaire en cas d'échec de connexion
+    }
+}
+</Script>
+

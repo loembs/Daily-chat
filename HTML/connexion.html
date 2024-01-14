@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Chat</title>
+    <link rel="stylesheet" href="../css/connexion.css">
+</head>
+<body>
+    <div class="app">
+        <form class="screen join-screen active" onsubmit="return seConnecter()">
+            <div class="form">
+                <h2>Join Chat</h2>
+                <div class="form-input">
+                    <label for="username">Login</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="form-input">
+                    <button type="submit" id="join-user">Join</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="../JS/Arrangements.js"></script>
+    <script>
+        function seConnecter() {
+            // Récupérer le nom d'utilisateur saisi
+            let username = document.getElementById('username').value.trim();
+
+            if (username.length === 0) {
+                alert('Veuillez entrer un nom d\'utilisateur.');
+                return false;
+            }
+
+            // Rediriger vers la page de chat avec le nom d'utilisateur comme paramètre
+            window.location.replace('chat.html?username=' + encodeURIComponent(username));
+
+            return false; // Empêcher l'envoi du formulaire par défaut
+        }
+    </script>
+</body>
+</html>

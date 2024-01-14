@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.css">
+    <title>Document</title>
+</head>
+<body>
+            <div class="container">
+                <div class="header"></div>
+                <div class="body">
+                        <div class="navbar">
+                            <li>
+                                <i class="fa-solid fa-message"></i>
+                                <p>message</p>
+                            </li>
+                        
+                            <li>
+                                <i class="fa-solid fa-people-group"></i>
+                                <p>Groupes</p>
+                            </li>
+                            
+                            <li>
+                                <i class="fa-solid fa-share-from-square"></i>
+                                <p>Diffusion</p>
+                            </li>
+                            
+                            <li>
+                                <i class="fa-solid fa-box-archive"></i>
+                                <p>Archives</p>
+                            </li>
+                            <li>
+                                <i class="fa-solid fa-plus"></i>
+                                <p>Nouveau</p>
+                            </li>
+                        </div>
+                        <div class="liste_des_discussions">
+                            <div class="header_liste_des_discussions">
+                                <h2>Discussion</h2>
+                            </div>
+                            <div class="header_liste_des_discussions">
+                                <div class="search-container">
+                                    <form id="search-form">
+                                        <div class="search-icon">
+                                            <i class="fas fa-search"></i>
+                                        </div>
+                                        <input type="text" id="search-input" placeholder="Rechercher...">
+                                    </form>
+                                </div>
+                                
+                            </div>
+                        <div class="discussions">
+                            <div class="card-body contacts_body">
+                                <ul class="contacts" id="contacts-list">
+                                        
+                                </ul>
+                            </div>
+                                    
+                        </div>
+                        <div class="zone_de_chat">
+                            <div class="header_zone_de_chat">
+                                <div class="photo_contact">
+                                    <div class="photo_profil">
+                                        <img src="" alt="" class="img1" id="photo-utilisateur">
+                                    </div>
+                                    <span><p id="nom-utilisateur"></p></span>
+                                    
+                                </div>
+                                <div class="icons_zone">
+                                    <i class="fa-solid fa-delete-left"></i>
+                                    <i class="fa-solid fa-box-archive"></i>
+                                    <i class="fa-solid fa-stop"></i>
+                                    <i class="fa-solid fa-trash"></i>
+                                </div>
+                            </div>
+                            
+                            <div class="zone_writting">
+                            <div class="messages">
+                                    <div class="message my-message">
+                                        <div>
+                                            <div class="name"></div>
+                                            <div class="text"></div>
+                                        </div>
+                                    </div>
+                                    <div class="update">
+                                        <p></p>
+                                    </div>
+                                    <div class="message other-message">
+                                        <div>
+                                            <div class="name"></div>
+                                            <div class="text"></div>  
+                                        </div>
+                                    </div>
+                            </div>
+                            </div>
+                            <form id="chat-form">
+                                <input type="text" id="chat-input" placeholder="Taper un message">
+                                <button type="submit">Envoyer</button>
+                            </form>
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+            </div>
+            
+
+            <script src="../JS/Arrangements.js"></script>
+            <script>
+               
+                window.onload = function() {
+                    genererListeContacts();
+                };
+        
+                function genererListeContacts() {
+                    
+                    let contactsList = document.getElementById('contacts-list');
+        
+                    
+                    contactsList.innerHTML = '';
+        
+                    
+                    let utilisateurActif = utilisateurConnecte; // l'utilisateur connecté
+        
+                    
+                    utilisateurActif.contacts.forEach(contact => {
+                        let contactItem = document.createElement('li');
+                        let contactLink = document.createElement('a');
+        
+
+                        contactLink.href = '#';
+                        contactLink.dataset.contactId = contact.id;
+                        contactLink.addEventListener('click', () => chargerContactActif(contact.id));
+        
+                        
+                        contactItem.innerHTML = `
+                            <div class="bloc_contact">
+                                <div class="img_cont">
+                                    <img src="${getImageUrl(contact)}" class="rounded-circle user_img">
+                                    <span class="online_icon"></span>
+                                </div>
+                                <div class="user_info">
+                                    <span>${contact.nom}</span>
+                                    <p>${calculerDiffTemps(contact.lastActive)}</p>
+                                </div>
+                            </div>
+                        `;
+        
+                       
+                        contactsList.appendChild(contactItem);
+                    });
+                }
+            </script>
+</body>
+</html>
